@@ -1,4 +1,3 @@
-import SignOutBtn from "@/components/auth/sign-out-btn"
 import { env } from "@/env.mjs"
 import { getCurrentUser } from "@/lib/session"
 import type { Metadata } from "next"
@@ -16,11 +15,7 @@ const DashboardPage = async () => {
       redirect("/sign-in")
    }
 
-   return (
-      <main>
-         <SignOutBtn />
-      </main>
-   )
+   return <main>Dashboard</main>
 }
 
 export default DashboardPage

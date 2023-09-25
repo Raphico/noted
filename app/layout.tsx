@@ -46,7 +46,11 @@ export const metadata: Metadata = {
    },
 }
 
-const RootLayout = ({ children }: { children: React.ReactNode }) => {
+interface RootLayoutProps {
+   children: React.ReactNode
+}
+
+const RootLayout = ({ children }: RootLayoutProps) => {
    return (
       <html lang="en">
          <head />
@@ -59,7 +63,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
          >
             <ThemeProvider
                attribute="class"
-               defaultTheme="system"
+               defaultTheme="dark"
                enableSystem
                disableTransitionOnChange
             >

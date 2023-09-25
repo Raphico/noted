@@ -1,10 +1,22 @@
-import { Github, Apple, Loader2, LogOut, LucideProps } from "lucide-react"
+import {
+   Github,
+   Apple,
+   Loader2,
+   LogOut,
+   User2,
+   SunMoon,
+   LayoutDashboard,
+   LucideProps,
+} from "lucide-react"
 
 export const Icons = {
    github: Github,
    apple: Apple,
    spinner: Loader2,
    signOut: LogOut,
+   user: User2,
+   theme: SunMoon,
+   dashboard: LayoutDashboard,
    logo: (props: LucideProps) => (
       <svg
          viewBox="0 0 67 67"
