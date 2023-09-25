@@ -6,6 +6,9 @@ import {
    User2,
    SunMoon,
    LayoutDashboard,
+   Pen,
+   Settings,
+   Search,
    LucideProps,
 } from "lucide-react"
 
@@ -16,7 +19,10 @@ export const Icons = {
    signOut: LogOut,
    user: User2,
    theme: SunMoon,
+   create: Pen,
    dashboard: LayoutDashboard,
+   settings: Settings,
+   search: Search,
    logo: (props: LucideProps) => (
       <svg
          viewBox="0 0 67 67"
