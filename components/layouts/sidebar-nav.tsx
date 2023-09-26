@@ -19,7 +19,7 @@ const SidebarNav = ({ items, noOfNotes }: SidebarNavProps) => {
    if (!items?.length) return null
 
    return (
-      <div className="space-y-8">
+      <div className="grid w-full gap-7">
          <div className="space-y-4">
             <h3 className="text-muted-foreground">Quick links</h3>
             <div className="grid space-y-4">
