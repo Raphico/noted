@@ -33,7 +33,10 @@ const DashboardLayout = async ({ children }: DashboardLayoutProps) => {
                   <Icons.logo className="w-8 h-8" aria-hidden="true" />
                   <p className="text-xl font-bold max-sm:hidden">Noted</p>
                </div>
-               <UserAccountDropdown user={user} />
+               <UserAccountDropdown
+                  user={user}
+                  items={dashboardConfig.sidebarNav}
+               />
             </div>
          </header>
 

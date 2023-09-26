@@ -16,12 +16,14 @@ import {
 } from "../ui/dropdown-menu"
 import UserAvatar from "../user-avatar"
 import { Icons } from "../icons"
+import { SidebarNavItem } from "@/types"
 
 interface UserAccountDropdownProps {
    user: Pick<User, "name" | "image" | "email">
+   items: SidebarNavItem[]
 }
 
-const UserAccountDropdown = ({ user }: UserAccountDropdownProps) => {
+const UserAccountDropdown = ({ user, items }: UserAccountDropdownProps) => {
    const { theme, setTheme } = useTheme()
 
    const toggleTheme = () =>
@@ -37,18 +39,24 @@ const UserAccountDropdown = ({ user }: UserAccountDropdownProps) => {
                <p className="text-muted-foreground">{user.email}</p>
             </DropdownMenuLabel>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>
-               <Link className="flex items-center gap-2" href="/">
-                  <Icons.dashboard className="h-4 w-4" aria-hidden="true" />
-                  Dashboard
-               </Link>
-            </DropdownMenuItem>
+            {items.map((item) => {
+               const Icon = Icons[item.icon]
+               return (
+                  <DropdownMenuItem>
+                     <Link href={item.href} className="flex items-center gap-2">
+                        <Icon className="h-4 w-4" aria-hidden="true" />
+                        {item.title}
+                     </Link>
+                  </DropdownMenuItem>
+               )
+            })}
             <DropdownMenuItem onSelect={toggleTheme}>
                <Icons.theme className="h-4 w-4 mr-2" aria-hidden="true" />
                Switch appearance
             </DropdownMenuItem>
+            <DropdownMenuSeparator />
             <DropdownMenuItem
-               className="cursor-pointer"
+               className="cursor-pointer text-muted-foreground"
                onSelect={() =>
                   signOut({ callbackUrl: `${window.location.origin}/sign-in` })
                }
