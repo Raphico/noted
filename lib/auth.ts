@@ -6,7 +6,8 @@ import EmailProvider from "next-auth/providers/email"
 
 import { db } from "./db"
 import { env } from "@/env.mjs"
-import { sendMagicLink } from "@/app/_actions/email"
+import { resend } from "./resend"
+import MagicLinkEmail from "@/components/emails/magic-link-email"
 
 export const authOptions: NextAuthOptions = {
    adapter: PrismaAdapter(db),
@@ -27,10 +28,18 @@ export const authOptions: NextAuthOptions = {
       }),
       EmailProvider({
          sendVerificationRequest: async ({ identifier, url }) => {
-            await sendMagicLink({
-               email: identifier,
-               magicLink: url,
-            })
+            try {
+               await resend.emails.send({
+                  from: ``,
+                  to: identifier,
+                  subject: "Your Magic Link for Signing In to Noted",
+                  react: MagicLinkEmail({
+                     magicLink: url,
+                  }),
+               })
+            } catch (error) {
+               if (error instanceof Error) throw new Error(error.message)
+            }
          },
       }),
    ],

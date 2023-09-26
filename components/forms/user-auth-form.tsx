@@ -12,6 +12,7 @@ import { useForm } from "react-hook-form"
 import { signIn } from "next-auth/react"
 
 import { z } from "zod"
+import { catchError } from "@/lib/utils"
 
 import { useSearchParams } from "next/navigation"
 import { useState } from "react"
@@ -30,24 +31,28 @@ const UserAuthForm = () => {
    })
 
    const onSubmit = async (values: Inputs) => {
-      setIsLoading(true)
+      try {
+         setIsLoading(true)
 
-      const res = await signIn("email", {
-         email: values.email.toLowerCase(),
-         callbackUrl: searchParams?.get("from") || "/dashboard",
-         redirect: false,
-      })
+         const res = await signIn("email", {
+            email: values.email.toLowerCase(),
+            callbackUrl: searchParams?.get("from") || "/",
+            redirect: false,
+         })
 
-      setIsLoading(false)
+         setIsLoading(false)
 
-      if (!res?.ok) {
-         return toast.error("Sign in request failed. Try again!")
+         if (!res?.ok) {
+            throw new Error("Sign in request failed. Try again!")
+         }
+
+         return toast.message("Check your email", {
+            description:
+               "We sent you a login link. Be sure to check your spam too.",
+         })
+      } catch (error) {
+         catchError(error)
       }
-
-      return toast.message("Check your email", {
-         description:
-            "We sent you a login link. Be sure to check your spam too.",
-      })
    }
 
    return (

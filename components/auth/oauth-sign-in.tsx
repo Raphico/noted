@@ -43,7 +43,7 @@ const OAuthSignIn = () => {
                   onClick={() => {
                      setIsLoading(provider.strategy)
                      signIn(provider.strategy, {
-                        callbackUrl: searchParams?.get("from") || "/dashboard",
+                        callbackUrl: searchParams?.get("from") || "/",
                      })
                   }}
                   disabled={isLoading !== null}
