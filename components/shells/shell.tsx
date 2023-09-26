@@ -5,6 +5,7 @@ const shellVariants = cva("grid items-start gap-8 pb-8 pt-6 md:py-8", {
    variants: {
       variant: {
          default: "container",
+         sidebar: "",
       },
    },
    defaultVariants: {

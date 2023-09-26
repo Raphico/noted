@@ -1,3 +1,5 @@
+import PageHeader from "@/components/page-header"
+import { Shell } from "@/components/shells/shell"
 import { env } from "@/env.mjs"
 import { getCurrentUser } from "@/lib/session"
 import type { Metadata } from "next"
@@ -15,7 +17,11 @@ const DashboardPage = async () => {
       redirect("/sign-in")
    }
 
-   return <main>Dashboard</main>
+   return (
+      <Shell variant="sidebar">
+         <PageHeader title="All Notes" />
+      </Shell>
+   )
 }
 
 export default DashboardPage
