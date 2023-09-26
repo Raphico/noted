@@ -3,6 +3,8 @@ import { z } from "zod"
 
 export const env = createEnv({
    server: {
+      UPLOADTHING_SECRET: z.string(),
+      UPLOADTHING_APP_ID: z.string(),
       RESEND_API_KEY: z.string(),
       NEXTAUTH_URL: z.string().url(),
       NEXTAUTH_URL_INTERNAL: z.string().url(),
@@ -17,6 +19,8 @@ export const env = createEnv({
       NEXT_PUBLIC_APP_URL: z.string().url(),
    },
    runtimeEnv: {
+      UPLOADTHING_SECRET: process.env.UPLOADTHING_SECRET,
+      UPLOADTHING_APP_ID: process.env.UPLOADTHING_APP_ID,
       RESEND_API_KEY: process.env.RESEND_API_KEY,
       NEXTAUTH_URL: process.env.NEXTAUTH_URL,
       NEXTAUTH_URL_INTERNAL: process.env.NEXTAUTH_URL_INTERNAL,

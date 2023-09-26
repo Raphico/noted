@@ -24,9 +24,7 @@ const SidebarNav = ({ items, noOfNotes }: SidebarNavProps) => {
             <h3 className="text-muted-foreground">Quick links</h3>
             <div className="grid space-y-4">
                {items.map((item) => {
-                  const isActive =
-                     (pathname.includes(item.href) && pathname.length > 1) ||
-                     pathname === item.href
+                  const isActive = pathname === item.href
 
                   const Icon = Icons[item.icon]
 
