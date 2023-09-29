@@ -75,7 +75,6 @@ model Note {
   title     String
   content   Json?
   pinned    Boolean  @default(false)
-  published Boolean  @default(false)
   createdAt DateTime @default(now()) @map(name: "created_at")
   updatedAt DateTime @default(now()) @map(name: "updated_at")
   authorId  String

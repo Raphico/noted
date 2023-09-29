@@ -9,6 +9,7 @@ import {
    Pen,
    Settings,
    Search,
+   ChevronLeft,
    LucideProps,
 } from "lucide-react"
 
@@ -23,6 +24,7 @@ export const Icons = {
    dashboard: LayoutDashboard,
    settings: Settings,
    search: Search,
+   chevronLeft: ChevronLeft,
    logo: (props: LucideProps) => (
       <svg
          viewBox="0 0 67 67"
