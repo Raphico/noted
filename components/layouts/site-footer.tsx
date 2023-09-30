@@ -1,4 +1,3 @@
-import { db } from "@/lib/db"
 import CreatePostButton from "../create-post-button"
 import { Shell } from "../shells/shell"
 

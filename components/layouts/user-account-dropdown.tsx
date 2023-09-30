@@ -32,7 +32,10 @@ const UserAccountDropdown = ({ user, items }: UserAccountDropdownProps) => {
    return (
       <DropdownMenu>
          <DropdownMenuTrigger className="rounded-full">
-            <UserAvatar user={user} className="h-10 w-10" />
+            <UserAvatar
+               user={{ image: user.image || null, name: user.name || null }}
+               className="h-10 w-10"
+            />
          </DropdownMenuTrigger>
          <DropdownMenuContent>
             <DropdownMenuLabel>

@@ -30,3 +30,15 @@ export function catchError(err: unknown) {
       return toast("Something went wrong, please try again later.")
    }
 }
+
+export function formatDate(inputDate: string) {
+   const date = new Date(inputDate)
+   if (isNaN(date.getTime())) {
+      return "Invalid Date"
+   }
+   return date.toLocaleDateString("en-GB", {
+      day: "2-digit",
+      month: "2-digit",
+      year: "numeric",
+   })
+}

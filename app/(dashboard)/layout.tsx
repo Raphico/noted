@@ -49,7 +49,7 @@ const DashboardLayout = async ({ children }: DashboardLayoutProps) => {
                   />
                </div>
             </aside>
-            <main className="flex w-full flex-1 flex-col overflow-hidden">
+            <main className="flex w-full flex-1 flex-col p-1 overflow-hidden">
                {children}
             </main>
          </div>

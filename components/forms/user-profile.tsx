@@ -95,10 +95,7 @@ const UserProfile = ({ user }: UserProfileProps) => {
 
    return (
       <Form {...form}>
-         <form
-            className="grid gap-4 p-1"
-            onSubmit={form.handleSubmit(onSubmit)}
-         >
+         <form className="grid gap-4" onSubmit={form.handleSubmit(onSubmit)}>
             <FormField
                control={form.control}
                name="image"

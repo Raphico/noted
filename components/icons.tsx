@@ -10,6 +10,9 @@ import {
    Settings,
    Search,
    ChevronLeft,
+   StickyNote,
+   MoreHorizontal,
+   Pin,
    LucideProps,
 } from "lucide-react"
 
@@ -25,6 +28,9 @@ export const Icons = {
    settings: Settings,
    search: Search,
    chevronLeft: ChevronLeft,
+   more: MoreHorizontal,
+   pin: Pin,
+   note: StickyNote,
    logo: (props: LucideProps) => (
       <svg
          viewBox="0 0 67 67"
