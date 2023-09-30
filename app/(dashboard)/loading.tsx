@@ -6,15 +6,12 @@ const Loading = () => {
    return (
       <Shell variant="sidebar" className="gap-4">
          <PageHeader title="All Notes" />
-         <div className="grid gap- divide-y divide-border">
+         <div className="divide-y divide-border">
             {Array(3)
                .fill(null)
                .map((_, i) => (
                   <div key={i} className="py-4">
-                     <div className="space-y-3">
-                        <Skeleton className="h-5 w-2/5" />
-                        <Skeleton className="h-4 w-4/5" />
-                     </div>
+                     <Skeleton className="h-14 w-full" />
                   </div>
                ))}
          </div>
