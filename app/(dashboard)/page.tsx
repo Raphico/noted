@@ -33,10 +33,10 @@ const DashboardPage = async () => {
       },
       orderBy: [
          {
-            pinned: "asc",
+            pinned: "desc",
          },
          {
-            updatedAt: "asc",
+            updatedAt: "desc",
          },
       ],
    })
@@ -53,7 +53,7 @@ const DashboardPage = async () => {
                   ))}
                </div>
             ) : (
-               <EmptyNotePlaceholder />
+               <EmptyNotePlaceholder placeholder="No notes" />
             )}
          </div>
       </Shell>

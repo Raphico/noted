@@ -6,13 +6,14 @@ import { Icons } from "./icons"
 
 interface NoteProps {
    note: Pick<Note, "id" | "title" | "pinned" | "createdAt">
+   showNoteWasPinned?: boolean
 }
 
-const Note = ({ note }: NoteProps) => {
+const Note = ({ note, showNoteWasPinned = true }: NoteProps) => {
    return (
       <div className="flex items-center justify-between py-4">
          <div className="flex items-center gap-4">
-            {note.pinned && (
+            {note.pinned && showNoteWasPinned && (
                <Icons.pin className="h-4 w-4" aria-label="pinned note" />
             )}
             <Link
