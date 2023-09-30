@@ -3,6 +3,7 @@ import { z } from "zod"
 
 export const env = createEnv({
    server: {
+      FROM_EMAIL_ADDRESS: z.string().email(),
       UPLOADTHING_SECRET: z.string(),
       UPLOADTHING_APP_ID: z.string(),
       RESEND_API_KEY: z.string(),
@@ -19,6 +20,7 @@ export const env = createEnv({
       NEXT_PUBLIC_APP_URL: z.string().url(),
    },
    runtimeEnv: {
+      FROM_EMAIL_ADDRESS: process.env.FROM_EMAIL_ADDRESS,
       UPLOADTHING_SECRET: process.env.UPLOADTHING_SECRET,
       UPLOADTHING_APP_ID: process.env.UPLOADTHING_APP_ID,
       RESEND_API_KEY: process.env.RESEND_API_KEY,

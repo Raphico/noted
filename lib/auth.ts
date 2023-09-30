@@ -30,7 +30,7 @@ export const authOptions: NextAuthOptions = {
          sendVerificationRequest: async ({ identifier, url }) => {
             try {
                await resend.emails.send({
-                  from: ``,
+                  from: env.FROM_EMAIL_ADDRESS,
                   to: identifier,
                   subject: "Your Magic Link for Signing In to Noted",
                   react: MagicLinkEmail({
