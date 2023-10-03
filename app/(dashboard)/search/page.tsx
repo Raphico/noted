@@ -3,6 +3,7 @@ import { db } from "@/lib/db"
 import { getCurrentUser } from "@/lib/session"
 import type { Metadata } from "next"
 import { redirect } from "next/navigation"
+import { authOptions } from "@/lib/auth"
 
 import PageHeader from "@/components/page-header"
 import { Shell } from "@/components/shells/shell"
@@ -25,7 +26,7 @@ const SearchPage = async ({ searchParams }: SearchPageProps) => {
    const user = await getCurrentUser()
 
    if (!user) {
-      redirect("/sign-in")
+      redirect(authOptions?.pages?.signIn || "/sign-in")
    }
 
    const notes = await db.note.findMany({

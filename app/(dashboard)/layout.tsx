@@ -1,6 +1,7 @@
 import { db } from "@/lib/db"
 import { getCurrentUser } from "@/lib/session"
 import { redirect } from "next/navigation"
+import { authOptions } from "@/lib/auth"
 
 import { Icons } from "@/components/icons"
 import UserAccountDropdown from "@/components/layouts/user-account-dropdown"
@@ -16,7 +17,7 @@ const DashboardLayout = async ({ children }: DashboardLayoutProps) => {
    const user = await getCurrentUser()
 
    if (!user) {
-      redirect("/sign-in")
+      redirect(authOptions?.pages?.signIn || "/sign-in")
    }
 
    const noOfNotes = await db.note.count({

@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import { env } from "@/env.mjs"
 import { getCurrentUser } from "@/lib/session"
 import { redirect } from "next/navigation"
+import { authOptions } from "@/lib/auth"
 
 import { Shell } from "@/components/shells/shell"
 import PageHeader from "@/components/page-header"
@@ -17,7 +18,7 @@ const ProfilePage = async () => {
    const user = await getCurrentUser()
 
    if (!user) {
-      redirect("/sign-in")
+      redirect(authOptions?.pages?.signIn || "/sign-in")
    }
 
    return (

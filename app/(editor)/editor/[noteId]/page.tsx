@@ -7,6 +7,7 @@ import { Shell } from "@/components/shells/shell"
 
 import { db } from "@/lib/db"
 import { getCurrentUser } from "@/lib/session"
+import { authOptions } from "@/lib/auth"
 
 export const metadata: Metadata = {
    metadataBase: new URL(env.NEXT_PUBLIC_APP_URL),
@@ -23,7 +24,7 @@ const EditorPage = async ({ params }: EditorPageProps) => {
    const user = await getCurrentUser()
 
    if (!user) {
-      redirect("/sign-in")
+      redirect(authOptions?.pages?.signIn || "/sign-in")
    }
 
    const note = await db.note.findFirst({

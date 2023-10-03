@@ -3,6 +3,7 @@ import { redirect } from "next/navigation"
 import { env } from "@/env.mjs"
 import { db } from "@/lib/db"
 import { getCurrentUser } from "@/lib/session"
+import { authOptions } from "@/lib/auth"
 
 import Note from "@/components/note"
 import PageHeader from "@/components/page-header"
@@ -18,7 +19,7 @@ export const metadata: Metadata = {
 const DashboardPage = async () => {
    const user = await getCurrentUser()
    if (!user) {
-      redirect("/sign-in")
+      redirect(authOptions?.pages?.signIn || "/sign-in")
    }
 
    const notes = await db.note.findMany({
